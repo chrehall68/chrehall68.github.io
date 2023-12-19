@@ -61,11 +61,11 @@ function Underlined(prefix: string, items: string[], letters_per_min: number = 5
     return () => clearInterval(tick)
   }, [item, idx, increasing, waitTime, opaque])
 
-  return <div className="flex flex-inline"><p>{prefix} <u>{items[item].substring(0, idx)}</u></p><span className={opaque ? "border border-white" : ""}></span></div>
+  return <div className="flex flex-inline"><p>{prefix} <u>{items[item].substring(0, idx).replace(" ", '\xa0')}</u></p><span className={opaque ? "border border-white" : ""}></span></div>
 }
 
 export default function Home() {
   return <main>
-    {Underlined("I make ", ["embedded firmware", "applications", "CLI scripts", "tomorrow's software"], 500, 1000)}
+    {Underlined("I make ", ["embedded firmware", "applications", "CLI scripts", "artificial intelligence", "tomorrow's software"], 500, 1000)}
   </main>
 }
