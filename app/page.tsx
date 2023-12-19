@@ -1,13 +1,13 @@
 'use client'
 import { useEffect, useState } from "react";
 
-function Underlined(prefix: string, items: string[], letters_per_min: number = 500, ms_to_wait: number = 800, blink_time: number = 400, blink: boolean = true) {
+function UnderlinedTypeAnimation(prefix: string, items: string[], lettersPerMin: number = 500, waitMS: number = 1100, blinkMS: number = 530, blink: boolean = true) {
   const [item, setitem] = useState(0);
   const [idx, setIdx] = useState(0);
   const [increasing, setIncreasing] = useState(true);
   const [waitTime, setWaitTime] = useState(0);
   const [opaque, setOpaque] = useState(true);
-  const interval = 60 * 1000 / letters_per_min
+  const interval = 60 * 1000 / lettersPerMin;
 
   useEffect(() => {
     let tick = setInterval(() => {
@@ -23,12 +23,12 @@ function Underlined(prefix: string, items: string[], letters_per_min: number = 5
           setIncreasing(false);
         }
       }
-      else if (waitTime < ms_to_wait) {
-        setWaitTime(waitTime + interval);
+      else if (waitTime < waitMS) {
+        setWaitTime(waitTime + blinkMS);
 
         // blink the cursor
         if (blink) {
-          if (waitTime % (blink_time * 2) < blink_time) {
+          if (waitTime % (blinkMS * 2) < blinkMS) {
             // have the cursor on
             if (!opaque) {
               setOpaque(true);
@@ -56,16 +56,19 @@ function Underlined(prefix: string, items: string[], letters_per_min: number = 5
           setIncreasing(true);
         }
       }
-    }, interval)
+    }, (!increasing && waitTime < waitMS) ? blinkMS : interval);
 
     return () => clearInterval(tick)
-  }, [item, idx, increasing, waitTime, opaque])
+  }, [item, idx, increasing, waitTime, opaque, interval, items, waitMS, blinkMS, blink])
 
-  return <div className="flex flex-inline"><p>{prefix} <u>{items[item].substring(0, idx).replace(" ", '\xa0')}</u></p><span className={opaque ? "border border-white" : ""}></span></div>
+  return <div className="flex flex-inline">
+    <p>{prefix} <u>{items[item].substring(0, idx).replace(" ", '\xa0')}</u></p>
+    <span className={opaque ? "border border-white" : ""}></span>
+  </div>
 }
 
 export default function Home() {
   return <main>
-    {Underlined("I make ", ["embedded firmware", "applications", "CLI scripts", "artificial intelligence", "tomorrow's software"], 500, 1000)}
+    {UnderlinedTypeAnimation("I make ", ["embedded firmware", "applications", "CLI scripts", "artificial intelligence", "tomorrow's software"])}
   </main>
 }
