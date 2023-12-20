@@ -62,7 +62,7 @@ function UnderlinedTypeAnimation(prefix: string, items: string[], lettersPerMin:
     return () => clearInterval(tick)
   }, [item, idx, increasing, waitTime, opaque, interval, items, waitMS, blinkMS, blink])
 
-  return <div className="flex overflow-hidden bg-cover bg-[50%] bg-no-repeat h-[50%] w-full"
+  return <div className="flex overflow-hidden bg-cover bg-[50%] bg-no-repeat h-[50%] w-full text-white"
     style={{ backgroundImage: "url('/codebg.png')" }}>
     <div className="flex h-full w-full bg-black overflow-hidden bg-fixed place-items-center" style={{ backgroundColor: "rgba(0, 0, 0, 0.6" }}>
       <div className="w-full h-min flex flex-wrap justify-center">

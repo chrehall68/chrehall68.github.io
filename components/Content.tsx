@@ -6,7 +6,7 @@ export interface ContentProps extends React.PropsWithChildren {
 }
 
 export const Content: React.FunctionComponent<ContentProps> = props => {
-    return <main className="h-screen">
+    return <main className="h-screen bg-white dark:bg-black">
         <NavbarDefault />
         {props.pre ? props.pre() : null}
         <div className="mx-[16.6%]">
