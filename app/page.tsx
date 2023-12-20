@@ -1,5 +1,5 @@
 'use client'
-import { NavBar } from "@/components/NavBar";
+import { NavbarDefault } from "@/components/NavBar";
 import { useEffect, useState } from "react";
 
 function UnderlinedTypeAnimation(prefix: string, items: string[], lettersPerMin: number = 500, waitMS: number = 1100, blinkMS: number = 530, blink: boolean = true) {
@@ -80,7 +80,7 @@ function UnderlinedTypeAnimation(prefix: string, items: string[], lettersPerMin:
 
 export default function Home() {
   return <main className="h-screen overflow-y-scroll overflow-x-hidden">
-    {NavBar()}
+    {NavbarDefault()}
     {UnderlinedTypeAnimation("I make ", ["embedded firmware", "applications", "CLI scripts", "artificial intelligence", "tomorrow's software"])}
   </main>
 }
