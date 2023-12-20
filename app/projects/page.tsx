@@ -2,7 +2,7 @@
 import { NavbarDefault } from "@/components/NavBar";
 
 export default function Projects() {
-    return <main className="h-screen overflow-y-scroll overflow-x-hidden">
+    return <main className="h-screen">
         {NavbarDefault()}
         <p>Coming Soon!</p>
     </main>

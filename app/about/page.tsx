@@ -2,7 +2,7 @@
 import { NavbarDefault } from "@/components/NavBar";
 
 export default function About() {
-    return <main className="h-screen overflow-y-scroll overflow-x-hidden">
+    return <main className="h-screen">
         {NavbarDefault()}
         <h1>About Me</h1>
         <p>This is a super detailed description of me. Wooh! I love details! Ideally there would

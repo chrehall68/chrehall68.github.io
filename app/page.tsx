@@ -79,8 +79,10 @@ function UnderlinedTypeAnimation(prefix: string, items: string[], lettersPerMin:
 }
 
 export default function Home() {
-  return <main className="h-screen overflow-y-scroll overflow-x-hidden">
+  return <main className="h-screen">
     {NavbarDefault()}
+    {UnderlinedTypeAnimation("I make ", ["embedded firmware", "applications", "CLI scripts", "artificial intelligence", "tomorrow's software"])}
+    {UnderlinedTypeAnimation("I make ", ["embedded firmware", "applications", "CLI scripts", "artificial intelligence", "tomorrow's software"])}
     {UnderlinedTypeAnimation("I make ", ["embedded firmware", "applications", "CLI scripts", "artificial intelligence", "tomorrow's software"])}
   </main>
 }
