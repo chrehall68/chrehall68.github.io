@@ -8,7 +8,7 @@ import {
 import { HomeIcon, QuestionMarkCircleIcon, DocumentTextIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
 
-export function NavbarDefault() {
+export const NavbarDefault: React.FunctionComponent = () => {
     const [openNav, setOpenNav] = React.useState(false);
 
     React.useEffect(() => {

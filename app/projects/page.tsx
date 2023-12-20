@@ -1,9 +1,8 @@
 'use client'
-import { NavbarDefault } from "@/components/NavBar";
+import { Content } from "@/components/Content";
 
 export default function Projects() {
-    return <main className="h-screen">
-        {NavbarDefault()}
+    return <Content>
         <p>Coming Soon!</p>
-    </main>
+    </Content>
 }
