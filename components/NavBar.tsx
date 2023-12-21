@@ -1,29 +1,29 @@
-import React from "react";
-import {
-    Navbar,
-    Typography,
-    IconButton,
-    Collapse,
-} from "@material-tailwind/react";
+import React, { useState } from "react";
 import { HomeIcon, QuestionMarkCircleIcon, DocumentTextIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
 
 export const NavbarDefault: React.FunctionComponent = () => {
-    const [openNav, setOpenNav] = React.useState(false);
+    const [openNav, setOpenNav] = useState(false);
+    const [atTop, setAtTop] = useState(true)
 
     React.useEffect(() => {
+        let openListener = () => window.innerWidth >= 960 && setOpenNav(false)
         window.addEventListener(
             "resize",
-            () => window.innerWidth >= 960 && setOpenNav(false),
+            openListener,
         );
-        return () => window.removeEventListener("resize", () => window.innerWidth >= 960 && setOpenNav(false));
-    }, []);
+        let scrollListener = () => setAtTop(window.scrollY == 0)
+        window.addEventListener(
+            "scroll",
+            scrollListener,
+        );
+
+        return () => { window.removeEventListener("resize", openListener); window.removeEventListener('scroll', scrollListener); }
+    }, [openNav, atTop]);
 
     const navList = (
         <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-            <Typography
-                as="li"
-                variant="small"
+            <li
                 color="blue-gray"
                 className="flex items-center gap-x-2 p-1 font-medium"
             >
@@ -31,10 +31,8 @@ export const NavbarDefault: React.FunctionComponent = () => {
                     <HomeIcon className="h-6 w-6" />
                     Home
                 </Link>
-            </Typography>
-            <Typography
-                as="li"
-                variant="small"
+            </li>
+            <li
                 color="blue-gray"
                 className="flex items-center gap-x-2 p-1 font-medium"
             >
@@ -42,10 +40,8 @@ export const NavbarDefault: React.FunctionComponent = () => {
                     <QuestionMarkCircleIcon className="h-6 w-6" />
                     About
                 </Link>
-            </Typography>
-            <Typography
-                as="li"
-                variant="small"
+            </li>
+            <li
                 color="blue-gray"
                 className="flex items-center gap-x-2 p-1 font-medium"
             >
@@ -53,33 +49,30 @@ export const NavbarDefault: React.FunctionComponent = () => {
                     <DocumentTextIcon className="h-6 w-6" />
                     Projects
                 </Link>
-            </Typography>
+            </li>
         </ul>
     );
 
     return (
-        <div className="my-12 lg:m-16">
-            <Navbar className="fixed top-0 left-0 w-full flex-inline justify-center shadow-md bg-white dark:bg-black">
-                <div className="mx-auto max-w-screen-xl px-4 py-2 lg:px-8 lg:py-4 mx-auto flex items-center justify-between text-black dark:text-white">
+        <div className="my-16 lg:my-24">
+            <nav className={"fixed top-0 left-0 w-full flex-inline justify-center shadow-md bg-white dark:bg-black " + (atTop || openNav ? "bg-opacity-100 rounded-none" : "bg-opacity-80 rounded-b-xl")}>
+                <div className="mx-auto max-w-screen-xl px-4 py-4 lg:px-8 lg:py-8 mx-auto flex items-center justify-between text-black dark:text-white">
                     <Link href="/" className="py-1 font-medium">
                         Eliot Hall
                     </Link>
                     <div className="hidden lg:block">{navList}</div>
-                    <IconButton
-                        variant="text"
+                    <p
                         className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-                        ripple={false}
                         onClick={() => setOpenNav(!openNav)}
                     >
                         {openNav ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
-                    </IconButton>
+                    </p>
                 </div>
-                <Collapse open={openNav} className="bg-white dark:bg-black text-black dark:text-white">
-                    <div className="container mx-auto">
-                        {navList}
-                    </div>
-                </Collapse>
-            </Navbar >
+                <div className={"relative bg-white dark:bg-black text-black dark:text-white "}>
+                    {openNav ? navList : null}
+                    {atTop}
+                </div>
+            </nav >
         </div >
     );
 }
