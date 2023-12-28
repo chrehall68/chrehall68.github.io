@@ -19,7 +19,7 @@ export const NavbarDefault: React.FunctionComponent = () => {
         );
 
         return () => { window.removeEventListener("resize", openListener); window.removeEventListener('scroll', scrollListener); }
-    }, [openNav, atTop]);
+    }, []);
 
     const navList = (
         <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
@@ -55,7 +55,7 @@ export const NavbarDefault: React.FunctionComponent = () => {
 
     return (
         <div className="my-16 lg:my-24">
-            <nav className={"fixed top-0 left-0 w-full flex-inline justify-center shadow-md bg-white dark:bg-black " + (atTop || openNav ? "bg-opacity-100 rounded-none" : "bg-opacity-80 rounded-b-xl")}>
+            <nav className={"fixed top-0 left-0 z-10 w-full flex-inline justify-center shadow-md bg-white dark:bg-black " + (atTop || openNav ? "bg-opacity-100 rounded-none" : "bg-opacity-80 rounded-b-xl")}>
                 <div className="mx-auto max-w-screen-xl px-4 py-4 lg:px-8 lg:py-8 mx-auto flex items-center justify-between text-black dark:text-white">
                     <Link href="/" className="py-1 font-medium">
                         Eliot Hall
