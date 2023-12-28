@@ -18,7 +18,7 @@ export const NavbarDefault: React.FunctionComponent = () => {
             scrollListener,
         );
 
-        return () => { window.removeEventListener("resize", openListener); window.removeEventListener('scroll', scrollListener); }
+        return () => { window.removeEventListener("resize", openListener); window.removeEventListener("scroll", scrollListener); }
     }, []);
 
     const navList = (

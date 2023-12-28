@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import { Content } from "@/components/Content"
 import { HeadedContainer } from "@/components/HeadedContainer"
 import { Timeline } from "@/components/Timeline"
@@ -61,7 +61,7 @@ export default function About() {
                     title: "MIT Beaverworks",
                     bullets: ["Earned the \“Dr. Bob Berman Award\” for creating personalized explanations and examples to assist other students",
                         "Developed an AI to play a zombie outbreak game using OpenAI gym and Stable Baselines PPO algorithm"],
-                    description: "Normally, this is a 4-week in-person event. However, when I attended MIT's Beaver Works Summer Institute, Covid-19 cases were still rampant, so my time was online. That didn't stop me from making the most of the experience, though. During my time, I:",
+                    description: "Normally, this is a 4-week in-person event. However, when I attended MIT's Beaver Works Summer Institute, Covid- 19 cases were still rampant, so my time was online.That didn't stop me from making the most of the experience, though.During my time, I: ",
                     date: "Summer 2022",
                     src: "/bwsi.png"
                 },
@@ -107,7 +107,7 @@ export default function About() {
                 },
                 {
                     title: "Stanford Ribonanza",
-                    description: "As a member of SJSU's ML Club, I met a couple club members interested in biology. Together, we found this competition and decided to compete, doing surprisingly well. The competition was a two-month-long Kaggle competition, during which I:",
+                    description: "As a member of SJSU's ML Club, I met a couple club members interested in biology.Together, we found this competition and decided to compete, doing surprisingly well.The competition was a two- month - long Kaggle competition, during which I:",
                     bullets: [
                         "Collaborated with two others to model RNA 3D structures, outperforming 700+ teams and winning a silver medal",
                         "Reduced model MAE by over 50% by writing a custom transformer in PyTorch and parallelizing our training loop",
