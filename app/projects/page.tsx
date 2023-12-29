@@ -16,7 +16,7 @@ const Project: React.FunctionComponent<ProjectProps> = props => {
     let style = {};
     let cn = "";
     if (props.src) {
-        style = { backgroundImage: `url('/IBM.svg')` };
+        style = { backgroundImage: `url('${props.src}')` };
     }
     else {
         cn = "bg-gray-800/50";
@@ -44,7 +44,7 @@ const Project: React.FunctionComponent<ProjectProps> = props => {
 export default function Projects() {
     return <Content>
         <HeadedContainer title="Projects">
-            <p>Here you can learn more about the projects I've done</p>
+            <p>Here you can learn more about the projects I&apos;ve done</p>
 
             <div className="flex flex-wrap justify-around items-center">
                 <Project title="Yes" description="Wooh yeah wooh yeah" id="yes" />
