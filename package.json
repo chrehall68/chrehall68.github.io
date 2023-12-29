@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
+    "leetcode-query": "^0.2.7",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18"

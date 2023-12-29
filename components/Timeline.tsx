@@ -19,6 +19,7 @@ const TE: React.FunctionComponent<_TE> = props => {
     const evenStyle = "transform translateX(-100%) ";
     const originalStyle = "bg-gray-500/30 rounded-xl p-2 mx-2 text-left ";
 
+    // responsive styles
     const [transformStyle, setTransformStyle] = React.useState("");
     const [slideInStyle, setSlideInStyle] = React.useState("");
     const [style, setStyle] = React.useState(originalStyle)

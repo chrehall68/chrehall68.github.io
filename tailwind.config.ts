@@ -29,11 +29,16 @@ const config: Config = {
         "slideOutRight": {
           "0%": { "opacity": "1", "transform": "translateX(0)" },
           "100%": { "opacity": "0", "transform": "translateX(-100%)" },
+        },
+        "slideInBottom": {
+          "0%": { "transform": "translateY(100%)" },
+          "100%": { "transform": "translateY(0)" }
         }
       },
       animation: {
         "slideInLeft": "slideInLeft 0.5s ease-in-out forwards",
-        "slideInRight": "slideInRight 0.5s ease-in-out forwards"
+        "slideInRight": "slideInRight 0.5s ease-in-out forwards",
+        "slideInFromBottom": "slideInBottom 0.25s ease-in-out forwards",
       }
     },
   },
