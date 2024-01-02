@@ -1,4 +1,5 @@
 "use server"
+import { CircularProgress, LinearProgress } from "@/components/SVGComponents";
 import LeetCode, { Credential, RateLimiter } from "leetcode-query";
 
 class NeetCode_ {
@@ -70,21 +71,21 @@ class NeetCode_ {
         // if we've updated in the required time, don't do anything
         // else, log that we did an update
         if (Date.now() - NeetCode_.lastUpdate < NeetCode_.msBetween) {
-            return;
+            console.log("using cached values");
+            return this.solvedProblems;
         }
         NeetCode_.lastUpdate = Date.now();
         NeetCode_.numLoaded = 0;
 
         // log in, then update.
         let c = new Credential();
-        await c.init(process.env.LEETCODE_SESSION);
+        c = await c.init(process.env.LEETCODE_SESSION);
 
         let lc = new LeetCode(c);
-        console.log(lc.limiter);
         lc.limiter = new RateLimiter({ limit: 150, concurrent: 150, interval: 10 });
-        console.log(lc.limiter);
 
-
+        // add the requests
+        let promises = []
         for (const topic of NeetCode_.topics) {
             // clear past records
             NeetCode_.solvedProblems.set(topic, [])
@@ -92,14 +93,37 @@ class NeetCode_ {
             // get the problems
             let problems = NeetCode_.problemMap.get(topic) || [];
             for (const problem of problems) {
-                const submissions = await lc.submissions({ limit: 5, offset: 0, slug: problem.toString().toLowerCase().replaceAll(" ", "-").replaceAll(",", "").replaceAll("(", "").replaceAll(")", "") });
-                NeetCode_.numLoaded += 1;
-                //console.log("at ", NeetCode_.numLoaded, "/150");
-                let solved = false;
-                submissions.forEach(submission => solved = solved || (submission.statusDisplay == "Accepted"));
-                NeetCode_.solvedProblems.get(topic)?.push(solved);
+                promises.push(lc.submissions({ limit: 5, offset: 0, slug: problem.toString().toLowerCase().replaceAll(" ", "-").replaceAll(",", "").replaceAll("(", "").replaceAll(")", "") }));
             }
         };
+
+        // wait for the requests
+        let startTime = Date.now();
+        let returned = await Promise.all(promises);
+        let finishedTime = Date.now();
+        console.log("took", (finishedTime - startTime));
+
+        // use the request results
+        let topicIdx = 0;
+        let submissionIdx = 0;
+        for (const submissions of returned) {
+            // get the topic
+            const topic = this.topics[topicIdx];
+
+            // get whether it was solved or not
+            let solved = false;
+            submissions.forEach(submission => solved = solved || (submission.statusDisplay == "Accepted"));
+            NeetCode_.solvedProblems.get(topic)?.push(solved);
+
+            // increment our counter
+            submissionIdx += 1
+            if (submissionIdx >= (NeetCode_.problemMap.get(topic)?.length || 0)) {
+                topicIdx += 1;
+                submissionIdx = 0;
+            }
+        }
+
+        return this.solvedProblems;
     }
 
     static numSolved() {
@@ -112,9 +136,33 @@ class NeetCode_ {
         return count;
     }
 
+    static numSolveTopic(topic: string) {
+        let count = 0;
+        NeetCode_.solvedProblems.get(topic)?.forEach(el => count += (el ? 1 : 0))
+        return count;
+    }
+
+    static async generateImage() {
+        let elements: JSX.Element[] = [];
+        NeetCode_.topics.forEach(
+            (topic, idx) => {
+                elements.push(
+                    <svg key={idx} height="50" width="200" className="m-2"><LinearProgress total={NeetCode_.solvedProblems.get(topic)?.length || 0} current={this.numSolveTopic(topic)} title={topic}
+                    /></svg>
+                )
+            }
+        )
+        return <div>
+            <svg width={100} height={100}><CircularProgress total={150} current={this.numSolved()} /></svg>
+            <div className="flex flex-wrap">
+                {elements}
+            </div>
+        </div>
+    }
+
     static async generateFull() {
         // update
-        await this.update();
+        const submissions = await this.update();
 
         let ret: JSX.Element[] = []
         NeetCode_.topics.forEach(
@@ -122,7 +170,7 @@ class NeetCode_ {
                 let problems: JSX.Element[] = []
 
                 NeetCode_.problemMap.get(topic)?.forEach(
-                    (problem, idx) => problems.push(<li key={index * 100 + idx}>{problem} : {NeetCode_.solvedProblems.get(topic)?.at(idx) ? "Solved" : "Not Solved"}</li>)
+                    (problem, idx) => problems.push(<li key={index * 100 + idx}>{problem} : {submissions.get(topic)?.at(idx) ? "Solved" : "Not Solved"}</li>)
                 )
 
                 ret.push(
@@ -134,7 +182,10 @@ class NeetCode_ {
             }
         )
 
-        return <div>{ret}</div>
+        return <div>
+            {await this.generateImage()}
+            {ret}
+        </div>
     }
 }
 
