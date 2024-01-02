@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 
 interface ProgressProps {
@@ -9,17 +10,16 @@ interface ProgressProps {
 }
 
 export const CircularProgress: React.FunctionComponent<ProgressProps> = props => {
-    //  const [pct, setPct] = React.useState(0);
+    const [pct, setPct] = React.useState(0);
     const r = 40;
     const c = Math.PI * (r * 2);
-    const pct = props.current / props.total * 100;
 
     // update progress
-    //React.useEffect(
-    //    () => {
-    //        setPct(props.current / props.total * 100)
-    //    }
-    //)
+    React.useEffect(
+        () => {
+            setPct(props.current / props.total * 100)
+        }
+    )
 
 
     return <g style={{ transform: `translateX(${props.x ? props.x : 0}px) translateY(${props.y ? props.y : 0}px)` }}>
@@ -51,13 +51,12 @@ export const CircularProgress: React.FunctionComponent<ProgressProps> = props =>
 }
 
 export const LinearProgress: React.FunctionComponent<ProgressProps> = props => {
-    //const [pct, setPct] = React.useState(0);
+    const [pct, setPct] = React.useState(0);
     const length = 200;
-    const pct = props.current / props.total * 100;
 
-    //React.useEffect(
-    //    () => setPct(props.current / props.total * 100)
-    //)
+    React.useEffect(
+        () => setPct(props.current / props.total * 100)
+    )
 
     return <g style={{ transform: `translateX(${props.x ? props.x : 0}px) translateY(${props.y ? props.y : 0}px)` }}>
         <text y="30" x="0" textAnchor="start" fontSize="12" className="fill-white">{props.title}</text><text y="30" x={length} textAnchor="end" fontSize="12" className="fill-white">{props.current}/{props.total}</text>

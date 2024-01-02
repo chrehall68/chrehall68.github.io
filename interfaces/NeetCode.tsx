@@ -1,8 +1,7 @@
-"use server"
 import { CircularProgress, LinearProgress } from "@/components/SVGComponents";
 import LeetCode, { Credential, RateLimiter } from "leetcode-query";
 
-class NeetCode_ {
+export class NeetCode_ {
     static topics: string[] = [
         "Arrays & Hashing",
         "Two Pointers",
@@ -125,70 +124,10 @@ class NeetCode_ {
 
         return this.solvedProblems;
     }
-
-    static numSolved() {
-        let count = 0;
-        NeetCode_.topics.forEach(
-            topic => {
-                NeetCode_.solvedProblems.get(topic)?.forEach(problem => count += (problem ? 1 : 0))
-            }
-        )
-        return count;
-    }
-
-    static numSolveTopic(topic: string) {
-        let count = 0;
-        NeetCode_.solvedProblems.get(topic)?.forEach(el => count += (el ? 1 : 0))
-        return count;
-    }
-
-    static async generateImage() {
-        let elements: JSX.Element[] = [];
-        NeetCode_.topics.forEach(
-            (topic, idx) => {
-                elements.push(
-                    <svg key={idx} height="50" width="200" className="m-2"><LinearProgress total={NeetCode_.solvedProblems.get(topic)?.length || 0} current={this.numSolveTopic(topic)} title={topic}
-                    /></svg>
-                )
-            }
-        )
-        return <div>
-            <svg width={100} height={100}><CircularProgress total={150} current={this.numSolved()} /></svg>
-            <div className="flex flex-wrap">
-                {elements}
-            </div>
-        </div>
-    }
-
-    static async generateFull() {
-        // update
-        const submissions = await this.update();
-
-        let ret: JSX.Element[] = []
-        NeetCode_.topics.forEach(
-            (topic, index) => {
-                let problems: JSX.Element[] = []
-
-                NeetCode_.problemMap.get(topic)?.forEach(
-                    (problem, idx) => problems.push(<li key={index * 100 + idx}>{problem} : {submissions.get(topic)?.at(idx) ? "Solved" : "Not Solved"}</li>)
-                )
-
-                ret.push(
-                    <div key={index}>
-                        <p>{topic}</p>
-                        {problems}
-                    </div>
-                )
-            }
-        )
-
-        return <div>
-            {await this.generateImage()}
-            {ret}
-        </div>
-    }
 }
 
-export async function NeetCode() {
-    return await NeetCode_.generateFull();
+export interface NeetCode {
+    solvedProblems: boolean[][],
+    problems: string[][],
+    topics: string[]
 }
