@@ -7,22 +7,33 @@ interface ProgressProps {
     title?: string,
     x?: string | number,
     y?: string | number,
+    delayS?: string | number,
+    fadeInS?: string | number
 }
 
 export const CircularProgress: React.FunctionComponent<ProgressProps> = props => {
+    const [waiting, setWaiting] = React.useState(true);
     const [pct, setPct] = React.useState(0);
     const r = 40;
     const c = Math.PI * (r * 2);
+    const delayS = props.delayS ? Number(props.delayS) : 0.1;
+    const fadeInS = props.fadeInS ? Number(props.fadeInS) : 0.3;
 
     // update progress
     React.useEffect(
         () => {
-            setPct(props.current / props.total * 100)
+            if (waiting) {
+                const int = window.setInterval(() => setWaiting(false), (delayS + fadeInS) * 1000)
+                return () => window.clearInterval(int)
+            }
+            else {
+                setPct(props.current / props.total * 100)
+            }
         }
     )
 
 
-    return <g style={{ transform: `translateX(${props.x ? props.x : 0}px) translateY(${props.y ? props.y : 0}px)` }}>
+    return <g className={`animate-[fadeIn_0.3s_ease] delay-[100]`} style={{ transform: `translateX(${props.x ? props.x : 0}px) translateY(${props.y ? props.y : 0}px)` }}>
         {/**Background Circle */}
         <circle
             className="stroke-gray-300"
