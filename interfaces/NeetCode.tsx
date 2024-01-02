@@ -1,4 +1,3 @@
-import { CircularProgress, LinearProgress } from "@/components/SVGComponents";
 import LeetCode, { Credential, RateLimiter } from "leetcode-query";
 
 export class NeetCode_ {
@@ -15,8 +14,8 @@ export class NeetCode_ {
         "Backtracking",
         "Graphs",
         "Advanced Graphs",
-        "1D Dynamic Programming",
-        "2D Dynamic Programming",
+        "1D DP",
+        "2D DP",
         "Greedy",
         "Intervals",
         "Math & Geometry",
@@ -35,8 +34,8 @@ export class NeetCode_ {
         ["Backtracking", ["Subsets", "Combination Sum", "Permutations", "Subsets II", "Combination Sum II", "Word Search", "Palindrome Partitioning", "Letter Combinations of a Phone Number", "N Queens"]],
         ["Graphs", ["Number of Islands", "Clone Graph", "Max Area of Island", "Pacific Atlantic Water Flow", "Surrounded Regions", "Rotting Oranges", "Walls And Gates", "Course Schedule", "Course Schedule II", "Redundant Connection", "Number of Connected Components In An Undirected Graph", "Graph Valid Tree", "Word Ladder"]],
         ["Advanced Graphs", ["Reconstruct Itinerary", "Min Cost to Connect All Points", "Network Delay Time", "Swim In Rising Water", "Alien Dictionary", "Cheapest Flights Within K Stops"]],
-        ["1D Dynamic Programming", ["Climbing Stairs", "Min Cost Climbing Stairs", "House Robber", "House Robber II", "Longest Palindromic Substring", "Palindromic Substrings", "Decode Ways", "Coin Change", "Maximum Product Subarray", "Word Break", "Longest Increasing Subsequence", "Partition Equal Subset Sum"]],
-        ["2D Dynamic Programming", ["Unique Paths", "Longest Common Subsequence", "Best Time to Buy And Sell Stock With Cooldown", "Coin Change II", "Target Sum", "Interleaving String", "Longest Increasing Path In a Matrix", "Distinct Subsequences", "Edit Distance", "Burst Balloons", "Regular Expression Matching"]],
+        ["1D DP", ["Climbing Stairs", "Min Cost Climbing Stairs", "House Robber", "House Robber II", "Longest Palindromic Substring", "Palindromic Substrings", "Decode Ways", "Coin Change", "Maximum Product Subarray", "Word Break", "Longest Increasing Subsequence", "Partition Equal Subset Sum"]],
+        ["2D DP", ["Unique Paths", "Longest Common Subsequence", "Best Time to Buy And Sell Stock With Cooldown", "Coin Change II", "Target Sum", "Interleaving String", "Longest Increasing Path In a Matrix", "Distinct Subsequences", "Edit Distance", "Burst Balloons", "Regular Expression Matching"]],
         ["Greedy", ["Maximum Subarray", "Jump Game", "Jump Game II", "Gas Station", "Hand of Straights", "Merge Triplets to Form Target Triplet", "Partition Labels", "Valid Parenthesis String"]],
         ["Intervals", ["Insert Interval", "Merge Intervals", "Non Overlapping Intervals", "Meeting Rooms", "Meeting Rooms II", "Minimum Interval to Include Each Query"]],
         ["Math & Geometry", ["Rotate Image", "Spiral Matrix", "Set Matrix Zeroes", "Happy Number", "Plus One", "Pow(x, n)", "Multiply Strings", "Detect Squares"]],
@@ -55,8 +54,8 @@ export class NeetCode_ {
         ["Backtracking", []],
         ["Graphs", []],
         ["Advanced Graphs", []],
-        ["1D Dynamic Programming", []],
-        ["2D Dynamic Programming", []],
+        ["1D DP", []],
+        ["2D DP", []],
         ["Greedy", []],
         ["Intervals", []],
         ["Math & Geometry", []],
