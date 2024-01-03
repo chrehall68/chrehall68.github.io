@@ -79,7 +79,7 @@ export default function ClientLeetCodePage() {
                         <div className="w-1/2 flex justify-start" >
                             <NeetCodeCard nc={data} />
                         </div>
-                        <p className="grow text-left px-2 max-w-[25vw]">Here are my NeetCode 150 stats! You can see the breakdown by category in the chart. My goal is
+                        <p className="w-1/2 text-left px-2">Here are my NeetCode 150 stats! You can see the breakdown by category in the chart. My goal is
                             to finish all NeetCode problems by Summer 2024. Check out my progress so far!
                         </p>
                     </div>

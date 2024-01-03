@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Content } from "@/components/Content";
 import { HeadedContainer } from "@/components/HeadedContainer";
 import Link from "next/link";
@@ -83,7 +83,18 @@ function UnderlinedTypeAnimation(prefix: string, items: string[], lettersPerMin:
 export default function Home() {
   return <Content pre={() => UnderlinedTypeAnimation("I make ", ["embedded firmware", "applications", "CLI scripts", "artificial intelligence", "tomorrow's software"])}>
     < HeadedContainer title="Hi there" className="py-10" >
-      <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Purus viverra accumsan in nisl nisi. Sit amet risus nullam eget. Massa massa ultricies mi quis. Vivamus at augue eget arcu dictum varius duis at consectetur. Viverra suspendisse potenti nullam ac tortor. Pharetra sit amet aliquam id diam maecenas ultricies mi eget. Ipsum suspendisse ultrices gravida dictum fusce ut. Aliquam etiam erat velit scelerisque in dictum non consectetur a. Lacus sed turpis tincidunt id aliquet risus feugiat. Viverra tellus in hac habitasse platea.</p>
+      <p className="pb-2">
+        You&apos;ve reached my website! Here, you can learn all about me, my projects, and my accomplishments.
+        You can also access my resume and socials (located at the bottom of this page).
+      </p>
+      <p>
+        As for me, I&apos;m a full-stack developer who has experience in almost all fields.
+        I&apos;ve worked in C++, C#, C, Go, Java, JS, and Python on projecst ranging from
+        embedded software to high level API design to Web design to artifical intelligence.
+        Nowadays, I work mostly with Python and PyTorch since I&apos;m hoping to work in the field of
+        artificial intelligence once I graduate. If you want to learn more about my life and experiences,
+        check out <Link href="about">the about page</Link>
+      </p>
     </HeadedContainer >
     <HeadedContainer title="Projects" className="pb-10">
       <p>Check out some of my highlighted projects below, or check out <Link href="/projects">the projects page</Link> to view a list of all of my projects</p>
