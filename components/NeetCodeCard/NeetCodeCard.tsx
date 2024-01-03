@@ -112,7 +112,9 @@ function numSolveTopic(nc: NeetCode, topic: string) {
     return count;
 }
 
-export function NeetCodeCard({ nc }: { nc: NeetCode }) {
+export function NeetCodeCard({ nc, delayMS }: { nc: NeetCode, delayMS?: number }) {
+    const extraDelay = delayMS ? delayMS : 0;
+
     let linears: JSX.Element[] = [];
 
     // helpers to get X and Y pos of the linear progress bars
@@ -129,14 +131,14 @@ export function NeetCodeCard({ nc }: { nc: NeetCode }) {
         row = Math.floor(idx / 2);
         col = (idx % 2) + 1;
 
-        linears.push(<LinearProgress total={nc.solvedProblems[idx].length} current={numSolveTopic(nc, nc.topics[idx])} title={nc.topics[idx]} x={getX(col)} y={getY(row)} delayMS={idx * 100 + 1} fill="url(#svg-text)" key={idx} />)
+        linears.push(<LinearProgress total={nc.solvedProblems[idx].length} current={numSolveTopic(nc, nc.topics[idx])} title={nc.topics[idx]} x={getX(col)} y={getY(row)} delayMS={(idx + 1) * 100 + extraDelay} fill="url(#svg-text)" key={idx} />)
     }
     // do every row except the last row
     for (idx = 4; idx < nc.topics.length - 2; ++idx) {
         row = Math.floor((idx - 4) / 3) + 2;
         col = (idx - 4) % 3;
 
-        linears.push(<LinearProgress total={nc.solvedProblems[idx].length} current={numSolveTopic(nc, nc.topics[idx])} title={nc.topics[idx]} x={getX(col)} y={getY(row)} delayMS={idx * 100 + 1} fill="url(#svg-text)" key={idx} />)
+        linears.push(<LinearProgress total={nc.solvedProblems[idx].length} current={numSolveTopic(nc, nc.topics[idx])} title={nc.topics[idx]} x={getX(col)} y={getY(row)} delayMS={(idx + 1) * 100 + extraDelay} fill="url(#svg-text)" key={idx} />)
     }
     // do the last row, but center it
     for (idx = nc.topics.length - 2; idx < nc.topics.length; ++idx) {
@@ -144,24 +146,24 @@ export function NeetCodeCard({ nc }: { nc: NeetCode }) {
         col = (idx - 4) % 3;
         let colOffset = Math.floor(getX(1) / 2);
 
-        linears.push(<LinearProgress total={nc.solvedProblems[idx].length} current={numSolveTopic(nc, nc.topics[idx])} title={nc.topics[idx]} x={getX(col) + colOffset} y={getY(row)} delayMS={idx * 100 + 1} fill="url(#svg-text)" key={idx} />)
+        linears.push(<LinearProgress total={nc.solvedProblems[idx].length} current={numSolveTopic(nc, nc.topics[idx])} title={nc.topics[idx]} x={getX(col) + colOffset} y={getY(row)} delayMS={(idx + 1) * 100 + extraDelay} fill="url(#svg-text)" key={idx} />)
     }
 
     return <svg width="550" height="375" >
         <defs>
             <linearGradient x1="0" y1="0" x2="1" y2="0" id="svg-bg">
-                <stop offset="0" stop-color="#dbeafe" id="_4" />
-                <stop offset="0.5" stop-color="#e0e7ff" id="_5" />
-                <stop offset="1" stop-color="#fae8ff" id="_6" />
+                <stop offset="0" stopColor="#dbeafe" id="_4" />
+                <stop offset="0.5" stopColor="#e0e7ff" id="_5" />
+                <stop offset="1" stopColor="#fae8ff" id="_6" />
             </linearGradient>
             <linearGradient x1="0" y1="0" x2="1" y2="0" id="svg-text">
-                <stop offset="0" stop-color="#2563eb" id="_7" />
-                <stop offset="0.5" stop-color="#4f46e5" id="_8" />
-                <stop offset="1" stop-color="#d946ef" id="_9" />
+                <stop offset="0" stopColor="#2563eb" id="_7" />
+                <stop offset="0.5" stopColor="#4f46e5" id="_8" />
+                <stop offset="1" stopColor="#d946ef" id="_9" />
             </linearGradient>
         </defs>
         <rect width="550" height="375" fill="url(#svg-bg)" />
-        <CircularProgress x="50" y="15" total={150} current={numSolved(nc)} fill="url(#svg-text)" />
+        <CircularProgress x="50" y="15" total={150} current={numSolved(nc)} fill="url(#svg-text)" delayMS={extraDelay} />
         {linears}
     </svg>
 }

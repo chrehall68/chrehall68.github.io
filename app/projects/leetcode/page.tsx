@@ -18,7 +18,6 @@ export default function ClientLeetCodePage() {
                 resp => {
                     resp.json().then(
                         parsed => {
-                            console.log("got parsed json", parsed);
                             setData(parsed);
                             setIsLoading(false);
                         }
@@ -52,7 +51,7 @@ export default function ClientLeetCodePage() {
     // actual content
     return <Content>
         <HeadedContainer title="LeetCode and NeetCode!!">
-            <div className="flex flex-wrap w-full justify-center pb-2">
+            <div className="flex flex-wrap w-full justify-center pb-4">
                 <p className="lg:w-1/2">Check out my LeetCode stats! I try to do at least one LeetCode problem
                     a week. Normally, I just do the daily LeetCode, but occasionally I do seek out problems
                     based on their programming concepts. As you can see from the chart,
@@ -64,7 +63,7 @@ export default function ClientLeetCodePage() {
             </div>
             {mobile ?
                 (<div className="flex flex-wrap">
-                    <p className="w-1/2">Here are my NeetCode 150 stats! You can see the breakdown by category in the chart. My goal is
+                    <p className="w-full">Here are my NeetCode 150 stats! You can see the breakdown by category in the chart. My goal is
                         to finish all NeetCode problems by Summer 2024. Check out my progress so far!
                     </p>
                     <div className="w-full flex justify-center" >
@@ -79,7 +78,6 @@ export default function ClientLeetCodePage() {
                     </p>
                 </div>)
             }
-
         </HeadedContainer>
     </Content>
 }
