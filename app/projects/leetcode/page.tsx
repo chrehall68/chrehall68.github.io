@@ -62,21 +62,28 @@ export default function ClientLeetCodePage() {
                 </div>
             </div>
             {mobile ?
-                (<div className="flex flex-wrap">
-                    <p className="w-full">Here are my NeetCode 150 stats! You can see the breakdown by category in the chart. My goal is
-                        to finish all NeetCode problems by Summer 2024. Check out my progress so far!
-                    </p>
-                    <div className="w-full flex justify-center" >
-                        <NeetCodeCard nc={data} />
+                (
+                    // mobile view
+                    <div className="flex flex-wrap">
+                        <p className="w-full">Here are my NeetCode 150 stats! You can see the breakdown by category in the chart. My goal is
+                            to finish all NeetCode problems by Summer 2024. Check out my progress so far!
+                        </p>
+                        <div className="w-full max-h-[40vh] flex justify-center" >
+                            <NeetCodeCard nc={data} />
+                        </div>
                     </div>
-                </div>) : (<div className="flex flex-inline">
-                    <div className="w-[600px] flex justify-start" >
-                        <NeetCodeCard nc={data} />
+                ) :
+                (
+                    // desktop view
+                    <div className="flex flex-inline">
+                        <div className="w-1/2 flex justify-start" >
+                            <NeetCodeCard nc={data} />
+                        </div>
+                        <p className="grow text-left px-2 max-w-[25vw]">Here are my NeetCode 150 stats! You can see the breakdown by category in the chart. My goal is
+                            to finish all NeetCode problems by Summer 2024. Check out my progress so far!
+                        </p>
                     </div>
-                    <p className="grow text-left px-2 max-w-[25vw]">Here are my NeetCode 150 stats! You can see the breakdown by category in the chart. My goal is
-                        to finish all NeetCode problems by Summer 2024. Check out my progress so far!
-                    </p>
-                </div>)
+                )
             }
         </HeadedContainer>
     </Content>
