@@ -1,19 +1,40 @@
 "use client"
 import { Content } from "@/components/Content";
 import { HeadedContainer } from "@/components/HeadedContainer";
+import { Loading } from "@/components/Loading";
 import { Project } from "@/components/Project";
+import { IProject } from "@/interfaces/IProject";
+import React, { useEffect } from "react";
 
 
 export default function Projects() {
+    const [isLoading, setIsLoading] = React.useState(true);
+    const [projects, setProjects] = React.useState<IProject[]>([]);
+
+    useEffect(
+        () => {
+            fetch("/api/projects").then(
+                resp => resp.json().then(
+                    parsed => {
+                        setProjects(parsed);
+                        setIsLoading(false);
+                    }
+                )
+            )
+        },
+        []
+    )
+
+    if (isLoading) {
+        return <Loading />;
+    }
+    console.log("yep")
     return <Content>
         <HeadedContainer title="Projects">
             <p>Here you can learn more about the projects I&apos;ve done</p>
 
             <div className="flex flex-wrap justify-around items-center">
-                <Project title="Yes" description="Wooh yeah wooh yeah" id="yes" />
-                <Project title="Yes" description="Wooh yeah wooh yeah" id="yes" src="/IBM.svg" />
-                <Project title="Yes" description="Wooh yeah wooh yeah" id="yes" src="/codebg.png" />
-                <Project title="Leetcode" description="Check out my LeetCode and NeetCode progress" id="leetcode" src="/leetcode.svg" />
+                {projects.map((proj, idx) => <Project key={idx} title={proj.title} description={proj.description} imageSrc={proj.imageSrc} id={proj.id} />)}
             </div>
         </HeadedContainer>
     </Content>

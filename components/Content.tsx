@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { NavbarDefault } from "./NavBar";
 import { Footer } from "./Footer";

@@ -1,4 +1,4 @@
-// src/components/Timeline.js
+"use client";
 import React from "react";
 
 export interface TimelineEntry {

@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { HomeIcon, QuestionMarkCircleIcon, DocumentTextIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
@@ -55,7 +56,7 @@ export const NavbarDefault: React.FunctionComponent = () => {
 
     return (
         <div className="my-16 lg:my-24">
-            <nav className={"fixed top-0 left-0 z-10 w-full flex-inline justify-center shadow-md bg-white dark:bg-black " + (atTop || openNav ? "bg-opacity-100 rounded-none" : "bg-opacity-80 rounded-b-xl")}>
+            <nav className={"fixed top-0 left-0 z-10 w-full flex-inline justify-center shadow-md bg-white backdrop-blur-sm dark:bg-black " + (atTop || openNav ? "bg-opacity-100 rounded-none" : "bg-opacity-80 rounded-b-xl")}>
                 <div className="mx-auto max-w-screen-xl px-4 py-4 lg:px-8 lg:py-8 mx-auto flex items-center justify-between text-black dark:text-white">
                     <Link href="/" className="py-1 font-medium">
                         Eliot Hall

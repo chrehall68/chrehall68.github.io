@@ -1,6 +1,9 @@
 "use client";
 import { Content } from "@/components/Content";
 import { HeadedContainer } from "@/components/HeadedContainer";
+import { Loading } from "@/components/Loading";
+import { Project } from "@/components/Project";
+import { IProject } from "@/interfaces/IProject";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -81,6 +84,25 @@ function UnderlinedTypeAnimation(prefix: string, items: string[], lettersPerMin:
 }
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [projects, setProjects] = useState<IProject[]>([]);
+
+  useEffect(
+    () => {
+      fetch("/api/projects").then(
+        resp => resp.json().then(
+          parsed => {
+            setIsLoading(false);
+            setProjects(parsed);
+          }
+        )
+      )
+    }, []
+  )
+
+  if (isLoading) {
+    return <Loading />
+  }
   return <Content pre={() => UnderlinedTypeAnimation("I make ", ["embedded firmware", "applications", "CLI scripts", "artificial intelligence", "tomorrow's software"])}>
     < HeadedContainer title="Hi there" className="py-10" >
       <p className="pb-2">
@@ -98,12 +120,23 @@ export default function Home() {
     </HeadedContainer >
     <HeadedContainer title="Projects" className="pb-10">
       <p>Check out some of my highlighted projects below, or check out <Link href="/projects">the projects page</Link> to view a list of all of my projects</p>
+      <div className="overflow-x-scroll scrollbar-thin scrollbar-thumb-black dark:scrollbar-thumb-gray-400 scrollbar-thumb-rounded pb-2">
+        <div className="flex flex-row w-max">
+          {projects.filter(proj => proj.highlighted ? true : false).map((proj, idx) => <Project key={idx} title={proj.title} description={proj.description} id={proj.id} imageSrc={proj.imageSrc} />)}
+        </div>
+      </div>
     </HeadedContainer>
     <HeadedContainer title="Resume" >
       <p className="pb-2">You can view and download my resume below.</p>
-      <object data="/Eliot_Hall_Resume.pdf" type="application/pdf" className="w-full lg:h-[80vh] flex justify-center">
-        <Link href="/Eliot_Hall_Resume.pdf" download="Eliot_Hall_Resume.pdf" className="bg-blue-800/50 p-4 rounded-xl">Download Resume</Link>
-      </object>
+      {window.navigator.pdfViewerEnabled ?
+        <object data="/Eliot_Hall_Resume.pdf" type="application/pdf" className="w-full h-[80vh]">
+          <p>This should never happen... Seems like you broke the website -\_(ツ)_/¯</p>
+        </object>
+        :
+        <div className="w-full flex justify-center">
+          <Link href="/Eliot_Hall_Resume.pdf" download="Eliot_Hall_Resume.pdf" className="bg-blue-800/50 p-4 rounded-xl h-min hover:bg-blue-800/70">Download Resume</Link>
+        </div>
+      }
     </HeadedContainer>
   </Content >
 }

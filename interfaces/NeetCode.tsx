@@ -62,7 +62,7 @@ export class NeetCode_ {
         ["Bit Manipulation", []],
     ])
     static lastUpdate: number = 0;
-    static msBetween: number = 24 * 60 * 60 * 1000;
+    static msBetween: number = 10 * 60 * 1000;  // 10 minutes
     static numLoaded: number = 0;
 
     static async update() {
