@@ -28,8 +28,7 @@ export default function Projects() {
     if (isLoading) {
         return <Loading />;
     }
-    console.log("yep")
-    return <Content>
+    return <Content useLoader={true}>
         <HeadedContainer title="Projects">
             <p>Here you can learn more about the projects I&apos;ve done</p>
 

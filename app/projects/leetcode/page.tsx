@@ -5,7 +5,7 @@ import { NeetCode } from "@/interfaces/NeetCode";
 import Image from "next/image";
 import React from "react";
 import { NeetCodeCard } from "@/components/NeetCodeCard/NeetCodeCard";
-import { Loading } from "@/components/Loading";
+import { FadeOutLoading, Loading } from "@/components/Loading";
 
 export default function ClientLeetCodePage() {
     const [isLoading, setIsLoading] = React.useState(true);
@@ -44,7 +44,7 @@ export default function ClientLeetCodePage() {
     }
 
     // actual content
-    return <Content>
+    return <Content useLoader={true}>
         <HeadedContainer title="LeetCode and NeetCode!!">
             <div className="flex flex-wrap w-full justify-center pb-4">
                 <p className="lg:w-1/2">Check out my LeetCode stats! I try to do at least one LeetCode problem

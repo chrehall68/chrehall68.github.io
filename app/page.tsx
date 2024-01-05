@@ -103,7 +103,7 @@ export default function Home() {
   if (isLoading) {
     return <Loading />
   }
-  return <Content pre={() => UnderlinedTypeAnimation("I make ", ["embedded firmware", "applications", "CLI scripts", "artificial intelligence", "tomorrow's software"])}>
+  return <Content useLoader={true} pre={() => UnderlinedTypeAnimation("I make ", ["embedded firmware", "applications", "CLI scripts", "artificial intelligence", "tomorrow's software"])}>
     < HeadedContainer title="Hi there" className="py-10" >
       <p className="pb-2">
         You&apos;ve reached my website! Here, you can learn all about me, my projects, and my accomplishments.
