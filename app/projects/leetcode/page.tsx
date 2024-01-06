@@ -52,7 +52,7 @@ export default function NewClientLeetCodePage() {
             <p className="w-full">
                 Here are my NeetCode 150 stats! You can see the breakdown by category in the chart. I started
                 doing NeetCode problems over my 2023-2024 winter break because one of my friends challenged
-                me to complete all of them. As you can see, I'm making good progress. My goal is to finish all
+                me to complete all of them. As you can see, I&apos;m making good progress. My goal is to finish all
                 NeetCode problems by Summer 2024. Check out my progress so far!
             </p>
             <div className="my-4 w-full flex flex-wrap justify-center">
@@ -69,8 +69,8 @@ export default function NewClientLeetCodePage() {
             </p>
             <p className="pb-2">
                 I think the best part of going through the NeetCode 150 was finally wrapping my head around 2D DP.
-                I'd been doing 1D DP problems prior to starting this challenge, and so 1D problems went like
-                clockwork for me. However, I'd never done a 2D DP problem successfully (at least not in the DP way;
+                I&apos;d been doing 1D DP problems prior to starting this challenge, and so 1D problems went like
+                clockwork for me. However, I&apos;d never done a 2D DP problem successfully (at least not in the DP way;
                 I may have cheesed them using <code>functools.lru_cache</code>), but doing this challenge pushed
                 me to read several online articles to finally start to get a small grasp and then do a bunch of practice
                 problems to cement those thought patterns into my mind.
