@@ -149,7 +149,7 @@ export function NeetCodeCard({ nc, delayMS }: { nc: NeetCode, delayMS?: number }
         linears.push(<LinearProgress total={nc.solvedProblems[idx].length} current={numSolveTopic(nc, nc.topics[idx])} title={nc.topics[idx]} x={getX(col) + colOffset} y={getY(row)} delayMS={(idx + 1) * 100 + extraDelay} fill="url(#svg-text)" key={idx} />)
     }
 
-    return <svg viewBox="0 0 550 375" className="w-full">
+    return <svg viewBox="0 0 552 377" className="w-full">
         <defs>
             <linearGradient x1="0" y1="0" x2="1" y2="0" id="svg-bg">
                 <stop offset="0" stopColor="#dbeafe" id="_4" />
@@ -162,7 +162,7 @@ export function NeetCodeCard({ nc, delayMS }: { nc: NeetCode, delayMS?: number }
                 <stop offset="1" stopColor="#d946ef" id="_9" />
             </linearGradient>
         </defs>
-        <rect width="550" height="375" fill="url(#svg-bg)" />
+        <rect width="550" height="375" fill="url(#svg-bg)" rx="4" strokeWidth="1" stroke="url(#svg-text)" />
         <CircularProgress x="50" y="15" total={150} current={numSolved(nc)} fill="url(#svg-text)" delayMS={extraDelay} />
         {linears}
     </svg>

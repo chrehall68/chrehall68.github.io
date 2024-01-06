@@ -1,7 +1,7 @@
 import { Blog } from "@/components/Blog";
 
 export default function Ribonanza() {
-    return <Blog title="Stanford Ribonanza RNA Folding" github="https://github.com/chrehall68/sjsu-ml-f23-ribonanza" brief="Learning to fold RNA sequences with PyTorch and Transformers">
+    return <Blog title="Stanford Ribonanza RNA Folding" github="https://github.com/chrehall68/sjsu-ml-f23-ribonanza" brief="Learning to fold RNA sequences with PyTorch and Transformers" dates="October 2023 - December 2023">
 
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fames ac turpis egestas maecenas pharetra convallis. Tristique sollicitudin nibh sit amet commodo nulla. Commodo quis imperdiet massa tincidunt nunc pulvinar. Et netus et malesuada fames. Tristique senectus et netus et malesuada fames ac turpis. Adipiscing bibendum est ultricies integer quis auctor elit sed vulputate. Pulvinar pellentesque habitant morbi tristique senectus et. Ultricies tristique nulla aliquet enim tortor at auctor urna nunc. Purus in mollis nunc sed id semper risus in hendrerit. Sed blandit libero volutpat sed. Nibh venenatis cras sed felis eget velit aliquet. Volutpat sed cras ornare arcu dui vivamus arcu. Quam adipiscing vitae proin sagittis. Duis ut diam quam nulla porttitor massa id neque. Dui vivamus arcu felis bibendum ut tristique et egestas. Eu turpis egestas pretium aenean pharetra. Fermentum et sollicitudin ac orci phasellus egestas tellus rutrum.
 

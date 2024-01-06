@@ -12,7 +12,7 @@ export interface ContentProps extends React.PropsWithChildren {
 export const Content: React.FunctionComponent<ContentProps> = props => {
     return <main className="h-max bg-white dark:bg-black static w-full">
         {props.useLoader ? <FadeOutLoading /> : null}
-        <div className="relative w-full h-max overflow-x-hidden">
+        <div className="relative w-full h-max">
             <NavbarDefault />
             {props.pre ? props.pre() : null}
             <div className="mx-[5%] lg:mx-[16.6%] pb-8">

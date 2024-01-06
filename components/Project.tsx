@@ -15,7 +15,7 @@ export const Project: React.FunctionComponent<IProject> = props => {
     const [visible, setVisible] = React.useState(false);
 
     // actual content
-    return <Link className={"h-[20vh] w-[25vh] lg:h-[15vw] lg:w-[20vw] rounded-xl bg-[50%] bg-cover overflow-hidden mx-4 mt-4 "}
+    return <Link className={"h-[20vh] w-[25vh] lg:h-[15vw] lg:w-[20vw] rounded-xl bg-[50%] bg-cover overflow-hidden mx-4 mt-4 hover:scale-105 hover:shadow-lg"}
         style={style}
         href={`/projects/${props.id}`}
         onMouseEnter={() => setVisible(true)}
