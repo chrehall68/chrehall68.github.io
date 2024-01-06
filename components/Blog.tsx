@@ -8,7 +8,8 @@ import Image from "next/image";
 export interface SkillProps {
     name: string,
     img: string,
-    brief: string
+    brief?: string
+    children?: React.ReactNode
 }
 export const Skill: React.FunctionComponent<SkillProps> = props => {
     return <div className="shadow rounded-xl p-4 flex flex-wrap justify-center w-[50vw] md:w-[25vw] lg:w-[20vw] m-4 bg-gray-300/50 dark:bg-gray-800/50">
@@ -16,7 +17,10 @@ export const Skill: React.FunctionComponent<SkillProps> = props => {
             <Image src={props.img} width={48} height={48} alt="image" />
         </div>
         <p className="text-center pb-2 text-lg">{props.name}</p>
-        <p className="italic">{props.brief}</p>
+        {props.brief ?
+            <p className="italic">{props.brief}</p>
+            : props.children
+        }
     </div>
 }
 
