@@ -69,9 +69,10 @@ export class NeetCode_ {
         // if we've updated in the required time, don't do anything
         // else, log that we did an update
         if (Date.now() - NeetCode_.lastUpdate < NeetCode_.msBetween) {
-            console.log("using cached values");
+            console.log("using cached values since last update was ", new Date(this.lastUpdate).toLocaleTimeString("en-US", { timeZone: "PST" }));
             return this.solvedProblems;
         }
+        console.log("updating values...");
         NeetCode_.lastUpdate = Date.now();
         NeetCode_.numLoaded = 0;
 
@@ -99,7 +100,7 @@ export class NeetCode_ {
         let startTime = Date.now();
         let returned = await Promise.all(promises);
         let finishedTime = Date.now();
-        console.log("took", (finishedTime - startTime));
+        console.log("took", (finishedTime - startTime), "ms");
 
         // use the request results
         let topicIdx = 0;

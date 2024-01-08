@@ -84,7 +84,7 @@ export default function NewClientLeetCodePage() {
 
         <SkillsUsed>
             <Skill img="/python.svg" name="Python" brief="Python is my go-to language for leetcode. It may not be the fastest language, but it is great for prototyping" />
-            <Skill img="/cpp.svg" name="C++" brief="While not my go-to language, I like using c++ once I've come up with an idea for an optimal solution and got promising results in Python. After all, C++ is just soooo much faster :>" />
+            <Skill img="/cpp.svg" name="C++" brief="While not my go-to language, I like using c++ once I've come up with an idea for an optimal solution and got promising results in Python. After all, C++ is just so much faster." />
         </SkillsUsed>
     </Blog>
 }

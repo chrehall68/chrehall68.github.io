@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(
     _req: NextRequest,
 ) {
-    console.log("request received");
+    console.log("received request to /api/neetcode")
     const submissions = await NeetCode_.update();
 
     // convert from map to boolean[][]

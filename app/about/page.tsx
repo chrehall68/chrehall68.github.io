@@ -25,7 +25,7 @@ export default function About() {
                 <MusicalNoteIcon className="w-4 h-4 mr-1" /><p className="w-max">Playing the piano!</p>
             </span>
             <span className="flex flex-inline items-center w-min my-2 mx-8">
-                <TvIcon className="w-4 h-4 mr-1" /><p className="w-max">Gaming </p>
+                <TvIcon className="w-4 h-4 mr-1" /><p className="w-max">Gaming!</p>
             </span>
         </div>
         <p>To learn more about my experiences, check out the timeline below.</p>
