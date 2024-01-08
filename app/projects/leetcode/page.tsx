@@ -14,7 +14,7 @@ export default function NewClientLeetCodePage() {
     // run the fetch
     React.useEffect(
         () => {
-            fetch("/api/neetcode").then(
+            fetch("/api/neetcode", { cache: "no-cache" }).then(
                 resp => {
                     resp.json().then(
                         parsed => {
