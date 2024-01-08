@@ -11,15 +11,15 @@ const projects: IProject[] = [
     },
     {
         title: "Stanford Ribonanza RNA Folding",
-        description: "A kaggle competition where I won a silver medal",
+        description: "A Kaggle competition where I won a silver medal",
         id: "ribonanza",
         imageSrc: "/ribonanza.png",
         highlighted: true,
     },
     {
-        title: "Yes",
-        description: "Wooh yeah wooh yeah",
-        id: "yes",
+        title: "IBM Z Datathon",
+        description: "A datathon where I won 2nd place",
+        id: "ibmdatathon",
         imageSrc: "/IBM.svg"
     },
     {

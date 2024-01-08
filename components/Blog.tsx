@@ -45,23 +45,39 @@ export const Blog: React.FunctionComponent<BlogProps> = props => {
         <HeadedContainer title={props.title} className="w-full">
             <div className="flex w-full">
                 {/** Actual Blog Post Content */}
-                <div className="w-3/4 pr-2 lg:pr-8">
-                    {props.children}
-                </div>
-
-                {/** Sticky GitHub links */}
-                <div className="w-1/4">
-                    <div className="p-2 lg:px-8 sticky top-[15vh] bg-gray-500/30 rounded-xl w-full">
+                <div className="w-full md:w-3/4 md:pr-2 lg:pr-8">
+                    {/** Put the sticky on top in case of mobile view */}
+                    <div className="p-2 my-2 md:hidden bg-gray-500/30 rounded-xl w-full">
                         <p>{props.title}</p>
                         <div className="w-full border-black dark:border-white border my-2" />
                         <p className="italic pb-2">{props.brief}</p>
                         <div className="flex flex-row w-full justify-start items-center">
-                            <CalendarDaysIcon className="w-[20%] p-2" />
+                            <CalendarDaysIcon className="w-[32px] h-[32px] p-2" />
                             <p className="w-[80%] italic max-sm:break-all break-words">{props.dates}</p>
                         </div>
                         {props.github ?
                             <Link href={props.github} className="flex w-full justify-start items-center">
-                                <GitHub className="w-[20%] p-2" />
+                                <GitHub className="w-[32px] h-[32px] p-2" />
+                                <p className="w-[80%] max-sm:break-all break-words">Project GitHub</p>
+                            </Link> : null}
+                    </div>
+
+                    {props.children}
+                </div>
+
+                {/** Sticky GitHub links for Medium screens and up */}
+                <div className="hidden md:flex w-1/4">
+                    <div className="p-2 lg:px-8 sticky top-[15vh] bg-gray-500/30 rounded-xl w-full h-min">
+                        <p>{props.title}</p>
+                        <div className="w-full border-black dark:border-white border my-2" />
+                        <p className="italic pb-2">{props.brief}</p>
+                        <div className="flex flex-row w-full justify-start items-center">
+                            <CalendarDaysIcon className="w-[32px] h-[32px] p-2" />
+                            <p className="w-[80%] italic max-sm:break-all break-words">{props.dates}</p>
+                        </div>
+                        {props.github ?
+                            <Link href={props.github} className="flex w-full justify-start items-center">
+                                <GitHub className="w-[32px] h-[32px] p-2" />
                                 <p className="w-[80%] max-sm:break-all break-words">Project GitHub</p>
                             </Link> : null}
                     </div>
