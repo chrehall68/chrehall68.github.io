@@ -59,7 +59,7 @@ export default function NewClientLeetCodePage() {
                 <div className="w-full max-h-[40vh] flex justify-center" >
                     <NeetCodeCard nc={data} />
                 </div>
-                <p className="italic text-sm">NeetCode stats fetched every 5 minutes; Problems credit to <Link href="https://neetcode.io/practice">NeetCode.io</Link></p>
+                <p className="italic text-sm">NeetCode stats fetched every 5 minutes; Problems credit to <Link href="https://neetcode.io/practice" className="underline">NeetCode.io</Link></p>
             </div>
             <p className="pb-2">
                 Honestly, going through the NeetCode 150 was a really good experience for me.

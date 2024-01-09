@@ -7,14 +7,18 @@ import Image from "next/image";
 
 export interface SkillProps {
     name: string,
-    img: string,
+    img: string | React.ReactNode,
     brief?: string
     children?: React.ReactNode
 }
 export const Skill: React.FunctionComponent<SkillProps> = props => {
     return <div className="shadow rounded-xl p-4 flex flex-wrap justify-center w-[50vw] md:w-[25vw] lg:w-[20vw] m-4 bg-gray-300/50 dark:bg-gray-800/50">
         <div className="w-full flex items-center justify-center">
-            <Image src={props.img} width={48} height={48} alt="image" />
+            {
+                typeof (props.img) === "string" ?
+                    <Image src={props.img} width={48} height={48} alt="image" />
+                    : props.img
+            }
         </div>
         <p className="text-center pb-2 text-lg">{props.name}</p>
         {props.brief ?

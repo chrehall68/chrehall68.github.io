@@ -115,11 +115,11 @@ export default function Home() {
         embedded software to high level API design to Web design to artifical intelligence.
         Nowadays, I work mostly with Python and PyTorch since I&apos;m hoping to work in the field of
         artificial intelligence once I graduate. If you want to learn more about my life and experiences,
-        check out <Link href="about">the about page</Link>
+        check out <Link href="about" className="underline">the about page</Link>
       </p>
     </HeadedContainer >
     <HeadedContainer title="Projects" className="pb-10">
-      <p>Check out some of my highlighted projects below, or check out <Link href="/projects">the projects page</Link> to view a list of all of my projects</p>
+      <p>Check out some of my highlighted projects below, or check out <Link href="/projects" className="underline">the projects page</Link> to view a list of all of my projects</p>
       <div className="overflow-x-scroll scrollbar-thin scrollbar-thumb-black dark:scrollbar-thumb-gray-400 scrollbar-thumb-rounded pb-2">
         <div className="flex flex-row w-max">
           {projects.filter(proj => proj.highlighted ? true : false).map((proj, idx) => <Project key={idx} title={proj.title} description={proj.description} id={proj.id} imageSrc={proj.imageSrc} />)}
@@ -134,7 +134,7 @@ export default function Home() {
         </object>
         :
         <div className="w-full flex justify-center">
-          <Link href="/Eliot_Hall_Resume.pdf" download="Eliot_Hall_Resume.pdf" className="bg-blue-800/50 p-4 rounded-xl h-min hover:bg-blue-800/70">Download Resume</Link>
+          <Link href="/Eliot_Hall_Resume.pdf" download="Eliot_Hall_Resume.pdf" className="bg-blue-800/50 p-4 rounded-xl h-min hover:bg-blue-800/70 underline">Download Resume</Link>
         </div>
       }
     </HeadedContainer>

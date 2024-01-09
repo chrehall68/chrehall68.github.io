@@ -23,14 +23,14 @@ const projects: IProject[] = [
         imageSrc: "/IBM.svg"
     },
     {
-        title: "Yes",
-        description: "Wooh yeah wooh yeah",
-        id: "yes",
+        title: "IHSBoost",
+        description: "A C++ library for robotic control and sensor integration",
+        id: "ihsboost",
     },
     {
-        title: "Yes",
-        description: "Something",
-        id: "yes"
+        title: "Coming Soon",
+        description: "More projects coming soon",
+        id: ""
     }
 ];
 

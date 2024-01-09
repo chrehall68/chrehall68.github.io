@@ -13,7 +13,7 @@ export default function About() {
     // is being used
     let hobbies = <div>
         <p>I spend most of my time working on fascinating coding projects
-            (check out my <Link href="/projects">project page</Link>) or completing schoolwork (graduating early
+            (check out my <Link href="/projects" className="underline">project page</Link>) or completing schoolwork (graduating early
             isn&apos;t easy). That doesn&apos;t mean I don&apos;t get breaks, though! When I do get a break,
             I like to spend my time:
         </p>

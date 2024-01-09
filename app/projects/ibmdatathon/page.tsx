@@ -5,7 +5,7 @@ import { HeadedContainer } from "@/components/HeadedContainer";
 import Link from "next/link";
 
 export default function Page() {
-    return <Blog title="IBM Z Datathon" brief="Hackathon hosted by IBM to use IBM Z systems and ML for good" dates="October 20-21, 2023">
+    return <Blog title="IBM Z Datathon" brief="Hackathon hosted by IBM to use IBM Z systems and ML for good" dates="October 20-21, 2023" github="https://github.com/chrehall68/SSF23-CodeCatalysts">
         <p>
             This was my first hackathon, and I must say that it sure was something. Looking back
             on it, the whole thing was a real roller coaster that I&apos;m lucky to have made it through.
@@ -25,7 +25,7 @@ export default function Page() {
                 the unique IBM Z architecture posed a problem: there weren&apos;t prebuilt binaries
                 of many packages that I wanted to use. More importantly, even when using a quantized version
                 of my LLM and a package (compiled on my IBM Z instance) that executed model layers sequentially
-                (check out <Link href="https://github.com/ggerganov/llama.cpp">llama.cpp</Link>),
+                (check out <Link href="https://github.com/ggerganov/llama.cpp" className="underline">llama.cpp</Link>),
                 the container that my team was given didn&apos;t have enough RAM available to run the model.
             </p>
         </HeadedContainer>
