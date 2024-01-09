@@ -68,7 +68,7 @@ function UnderlinedTypeAnimation(prefix: string, items: string[], lettersPerMin:
   }, [item, idx, increasing, waitTime, opaque, interval, items, waitMS, blinkMS, blink])
 
   return <div className="flex overflow-hidden bg-[50%] bg-cover bg-no-repeat h-[50vh] w-full text-white"
-    style={{ backgroundImage: "url('/codebg.png')" }}>
+    style={{ backgroundImage: "url('/codebg.webp')" }}>
     <div className="flex h-full w-full bg-black overflow-hidden bg-fixed place-items-center" style={{ backgroundColor: "rgba(0, 0, 0, 0.6" }}>
       <div className="w-full h-min flex flex-wrap justify-center">
         <div className="flex flex-inline justify-center w-full lg:w-max">

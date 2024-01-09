@@ -72,7 +72,7 @@ export default function Ribonanza() {
                 do another competition like this, I&apos;ll look more into other ways to use data that I already have.
             </p>
             <div className="flex w-full flex-wrap items-center justify-center">
-                <Image src="/kaggle_silver.png" width={744} height={410} className="w-full lg:w-[66.6%]" alt="silver place" />
+                <Image src="/kaggle_silver.webp" width={744} height={410} className="w-full lg:w-[66.6%]" alt="silver place" />
                 <p className="italic text-sm">Screenshot of the email I received telling me I won a silver medal.</p>
             </div>
         </HeadedContainer>

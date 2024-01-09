@@ -47,7 +47,7 @@ export default function About() {
                         {hobbies}
                     </div>
                 </div>
-                <img src="/headshot.png" alt="headshot" className="w-1/3 h-min rounded-full" />
+                <img src="/headshot.webp" alt="headshot" className="w-1/3 h-min rounded-full" />
             </div>
 
             {/** Hobbies Mobile */}
@@ -63,7 +63,7 @@ export default function About() {
                         "Developed an AI to play a zombie outbreak game using OpenAI gym and Stable Baselines PPO algorithm"],
                     description: "Normally, this is a 4-week in-person event. However, when I attended MIT's Beaver Works Summer Institute, Covid- 19 cases were still rampant, so my time was online.That didn't stop me from making the most of the experience, though.During my time, I: ",
                     date: "Summer 2022",
-                    src: "/bwsi.png"
+                    src: "/bwsi.webp"
                 },
                 {
                     title: "IHSBoost",
@@ -79,7 +79,7 @@ export default function About() {
                 {
                     title: "Graduated IHS",
                     description: "I graduated from Independence High School as Summa Cum Laude and Valedictorian out of my class of over 600 students.",
-                    src: "/ihs.png",
+                    src: "/ihs.webp",
                     date: "May 2023"
                 },
                 {
@@ -114,7 +114,7 @@ export default function About() {
                         "Designed a 75% faster data preprocessing pipeline to extract meaningful features, further reducing model MAE",
 
                     ],
-                    src: "/ribonanza.png",
+                    src: "/ribonanza.webp",
                     date: "October 2023 - December 2023"
                 }
             ]} />

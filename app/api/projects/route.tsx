@@ -13,7 +13,7 @@ const projects: IProject[] = [
         title: "Stanford Ribonanza RNA Folding",
         description: "A Kaggle competition where I won a silver medal",
         id: "ribonanza",
-        imageSrc: "/ribonanza.png",
+        imageSrc: "/ribonanza.webp",
         highlighted: true,
     },
     {
