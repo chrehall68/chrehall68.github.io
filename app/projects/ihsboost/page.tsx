@@ -259,7 +259,7 @@ export default function Page() {
         <p className="pb-2">
             This was one of my all-time favorite projects to work on. Not only was the code super fun to write,
             but I had tons of fun learning how to use CI/CD to run common actions for me.
-            Here's some highlights from the project.
+            Here&apos;s some highlights from the project.
         </p>
         <HeadedContainer title="Advanced C++" textSize="text-xl">
             <p className="pb-2">
@@ -268,7 +268,7 @@ export default function Page() {
                 proved useful somewhere in my library.
             </p>
             <p className="pb-2">
-                Here's a sample of one of my favorite files:
+                Here&apos;s a sample of one of my favorite files:
             </p>
             <Highlight language="cpp" code={code} theme={themes.nightOwl} >
                 {({ className, style, tokens, getLineProps, getTokenProps }) => (
@@ -314,7 +314,7 @@ export default function Page() {
             <p className="pb-2">
                 It turns out, Doxygen makes building and deploying documentation a breeze. As for building the actual libraries, those
                 workflows took a bit more work to set up, but they were all the more gratifying when they actually ran (and saved
-                me tons of time that I would've spent compiling my library on my personal computer).
+                me tons of time that I would&apos;ve spent compiling my library on my personal computer).
             </p>
         </HeadedContainer>
 
