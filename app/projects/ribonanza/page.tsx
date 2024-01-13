@@ -20,7 +20,7 @@ export default function Ribonanza() {
                 from this competition:
             </p>
             <li>I went from knowing very basic TensorFlow to making custom modules in PyTorch.</li>
-            <li>I learned a whole bunch of niche biology that was super interesting and that I may never use again😂</li>
+            <li>I learned a whole bunch of niche biology that was super interesting and that I will hopefully one day use again😂</li>
             <li>I learned how to use a bunch of tools in the ML ecosystem</li>
         </div>
         <HeadedContainer className="pb-2" textSize="text-xl" title="Intro and Data Preprocessing Steps">

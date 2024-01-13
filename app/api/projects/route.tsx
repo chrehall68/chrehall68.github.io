@@ -26,6 +26,7 @@ const projects: IProject[] = [
         title: "IHSBoost",
         description: "A C++ library for robotic control and sensor integration",
         id: "ihsboost",
+        imageSrc: "https://avatars.githubusercontent.com/u/42852455?s=400&u=6db3a963e0996de6dd7ac02ac8173afb86394860&v=4"
     },
     {
         title: "Coming Soon",
