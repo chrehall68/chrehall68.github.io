@@ -2,6 +2,7 @@
 import { Blog, Skill, SkillsUsed } from "@/components/Blog";
 import { HeadedContainer } from "@/components/HeadedContainer";
 import { GitHub } from "@/components/svgs";
+import Image from "next/image";
 import Link from "next/link";
 import { Highlight, themes } from "prism-react-renderer";
 
@@ -297,25 +298,43 @@ export default function Page() {
                 CI/CD is basically the process of converting the code that you wrote into
                 packages / websites / deliverables that are actually usable for most people.
             </p>
+
             <div className="pb-2">
                 <p >
                     For my project, what that looked like was
                 </p>
                 <li>Running checks on my code to make sure the code quality was acceptable</li>
-                <li>
-                    Turning the source header files into documentation and deploying that documentation
-                    (check out documentation at <Link href="https://ihsrobotics.github.io/ihsboost/" className="underline">ihsrobotics.github.io/ihsboost/</Link>)
-                </li>
+                <li>Running Clang-Format on my code to make it look pretty😂</li>
+                <li>Turning the source header files into documentation and deploying that documentation</li>
                 <li>
                     Compiling the library for common architectures and packaging it as a debian file for easy install
-                    (I have packages available via <Link href="https://github.com/ihsrobotics/ihsboost/releases" className="underline">GitHub releases!!</Link>)
+                    (I have packages available )
                 </li>
             </div>
-            <p className="pb-2">
-                It turns out, Doxygen makes building and deploying documentation a breeze. As for building the actual libraries, those
-                workflows took a bit more work to set up, but they were all the more gratifying when they actually ran (and saved
-                me tons of time that I would&apos;ve spent compiling my library on my personal computer).
-            </p>
+
+            <div className="pb-2">
+                <p className="pb-2">
+                    It turns out, Doxygen makes building and deploying documentation a breeze.
+                </p>
+                <div className="flex flex-wrap justify-center my-2">
+                    <Image src="/ihsboost_doc.webp" width="1247" height="710" alt="Documentation" className="w-full h-auto" />
+                    <p className="text-sm italic text-center">Beautiful documentation visible at <Link href="https://ihsrobotics.github.io/ihsboost/" className="underline">ihsrobotics.github.io/ihsboost/</Link></p>
+                </div>
+            </div>
+
+            <div className="pb-2">
+                <p className="pb-2">
+                    As for building the actual libraries, those
+                    workflows took a bit more work and a lot more clever thinking to set up,
+                    but they were all the more gratifying when they actually ran. Best of all, those
+                    workflows made making releases as simple as pushing to GitHub and then setting the artifacts
+                    as the next release.
+                </p>
+                <div className="flex flex-wrap justify-center my-2">
+                    <Image src="/ihsboost_releases.webp" width="1247" height="859" alt="Releases" className="w-full h-auto" />
+                    <p className="text-sm italic text-center">Releases (and, more importantly, Debian files) available via <Link href="https://github.com/ihsrobotics/ihsboost/releases" className="underline">GitHub releases!!</Link></p>
+                </div>
+            </div>
         </HeadedContainer>
 
         <SkillsUsed>
