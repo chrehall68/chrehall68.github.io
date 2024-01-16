@@ -10,19 +10,19 @@ export default function Page() {
             We were an organization of student volunteers dedicated to giving children in
             underpriveleged communities the opportunity to learn to code.
             I started as just a teacher, but soon I realized that I could put my design and coding
-            skills to better use by optimizing the organization. That's how Enoch came to be.
+            skills to better use by optimizing the organization. That&apos;s how Enoch came to be.
         </p>
         <HeadedContainer title="Inception" textSize="text-xl">
             <p className="pb-2">
                 The actual story of how Enoch came to be is a bit more complex than that.
-                The organization's president had the idea to make an application to automate
+                The organization&apos;s president had the idea to make an application to automate
                 class scheduling. I just happened to be the one who built the application itself.
             </p>
         </HeadedContainer>
         <HeadedContainer title="Outlining the Problem" textSize="text-xl">
             <p className="pb-2">
                 As it was, we had our whole HR department working on it, and
-                even then they were still falling behind. I don't blame them; class scheduling
+                even then they were still falling behind. I don&apos;t blame them; class scheduling
                 was a complicated process involving coordinating teacher availabilities, student
                 preferences, and more.
             </p>
