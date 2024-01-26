@@ -5,7 +5,6 @@ import { Timeline } from "@/components/Timeline"
 import { BeakerIcon, MusicalNoteIcon, TvIcon } from "@heroicons/react/16/solid"
 import Link from "next/link"
 import React from "react"
-import Image from "next/image"
 
 export default function About() {
     // hobbies are like this so that they can be easily
