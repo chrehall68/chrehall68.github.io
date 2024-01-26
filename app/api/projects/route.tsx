@@ -35,6 +35,12 @@ const projects: IProject[] = [
         imageSrc: "https://www.gitbook.com/cdn-cgi/image/width=288,height=288,fit=contain,format=auto/https%3A%2F%2F3062545790-files.gitbook.io%2F~%2Ffiles%2Fv0%2Fb%2Fgitbook-legacy-files%2Fo%2Fspaces%252F-MHwF08Cx3vStZPAN4PD%252Favatar-1600886166237.png%3Fgeneration%3D1600886166749486%26alt%3Dmedia"
     },
     {
+        title: "JavaBench",
+        description: "Classic Data Structures and Algorithms in Java - Benchmarked.",
+        id: "javabench",
+        imageSrc: "/Swing.webp"
+    },
+    {
         title: "Coming Soon",
         description: "More projects coming soon",
         id: ""
