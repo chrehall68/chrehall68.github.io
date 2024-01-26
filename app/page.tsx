@@ -106,7 +106,8 @@ export default function Home() {
   return <Content useLoader={true} pre={() => UnderlinedTypeAnimation("I make ", ["embedded firmware", "applications", "CLI scripts", "artificial intelligence", "tomorrow's software"])}>
     < HeadedContainer title="Hi there" className="py-10" >
       <p className="pb-2">
-        You&apos;ve reached my website! Here, you can learn all about me, my projects, and my accomplishments.
+        You&apos;ve reached my website! I&apos;m Eliot Hall (or chrehall68 in my socials).
+        Here, you can learn all about me, my projects, and my accomplishments.
         You can also access my resume and socials (located at the bottom of this page).
       </p>
       <p>
