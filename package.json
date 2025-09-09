@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
-    "leetcode-query": "^0.2.7",
+    "leetcode-query": "^2.0.1",
     "next": "14.0.3",
     "prism-react-renderer": "^2.3.1",
     "react": "^18",
